@@ -1,0 +1,15 @@
+"""
+name:      config.py
+author:    Jordan Stremming
+last edit: 4/4/2020
+
+"""
+
+# the IP address for the router
+router_ip = '192.168.1.1'
+
+# for most Linksys/Belkin routers, this is simply 'admin'
+user = 'admin'
+
+# the password associated with the user
+password = 'admin'
