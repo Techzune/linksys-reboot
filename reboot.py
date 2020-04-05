@@ -16,13 +16,13 @@ session = requests.Session()
 session.headers.update({
     'Content-Type': 'application/json; charset=UTF-8',
     'Accept': 'application/json',
-    'X-JNAP-Authorization': b'Basic ' + b64(f'{config.user}:{config.password}'.encode()),
+    'X-JNAP-Authorization': b'Basic ' + b64((config.user + ':' + config.password).encode()),
     'X-JNAP-Action': 'http://linksys.com/jnap/core/Reboot',
 })
 
 # send the request to the router
 print('Sending reboot to router...')
-s = session.post(f'http://{config.router_ip}/JNAP/', data=json.dumps({}), verify=False)
+s = session.post('http://' + config.router_ip + '/JNAP/', data=json.dumps({}), verify=False)
 
 # display response
 print('\tRouter responded: ', s.text.replace('\n', ''))
